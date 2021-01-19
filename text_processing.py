@@ -33,7 +33,10 @@ def normalize(input_string):
              >>> tp.normalize(input_string2)
              'extra space'
     """
-    normalized_string = None
+
+
+    normalized_string = ' '.join(input_string.lower().strip().split())
+
     return normalized_string
 
 
@@ -52,11 +55,38 @@ def no_vowels(input_string):
         Examples:
             >>> import text_processing as tp
             >>> input_string1 = "This is an example."
-            >>> tp.normalize(input_string1)
+            >>> tp.no_vowels(input_string1)
             "Ths s n xmpl."
             >>> input_string2 = "We love Python!"
-            >>> tp.normalize(input_string2)
+            >>> tp.no_vowels(input_string2)
             ''W lv Pythn!'
     """
-    no_vowel_string = None
+    no_vowel_string = ''
+
+    array = list()
+
+    for i in list(input_string.split()):
+        temp = ''
+        for j in i:
+            if j in 'aeiouAEIOU':
+                temp += ''
+            else:
+                temp += j
+        array.append(temp)
+
+    for i in range(len(array)):
+        if i == 0:
+            no_vowel_string += array[i]
+        else:
+            no_vowel_string += ' ' + array[i]
+
     return no_vowel_string
+
+
+def main():
+    string = "AI for ALL!"
+    print(normalize(string))
+    print(no_vowels(string))
+
+if __name__ == "__main__":
+    main()
