@@ -62,31 +62,10 @@ def no_vowels(input_string):
             ''W lv Pythn!'
     """
     no_vowel_string = ''
-
-    array = list()
-
-    for i in list(input_string.split()):
-        temp = ''
-        for j in i:
-            if j in 'aeiouAEIOU':
-                temp += ''
-            else:
-                temp += j
-        array.append(temp)
-
-    for i in range(len(array)):
-        if i == 0:
-            no_vowel_string += array[i]
-        else:
-            no_vowel_string += ' ' + array[i]
-
+    vowels = 'aeiouAEIOU'
+    for i in input_string:
+        if i not in vowels:
+            no_vowel_string += i
     return no_vowel_string
 
 
-def main():
-    string = "AI for ALL!"
-    print(normalize(string))
-    print(no_vowels(string))
-
-if __name__ == "__main__":
-    main()
